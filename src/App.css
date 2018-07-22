@@ -1,0 +1,25 @@
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.app__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.routerLink {
+    color: inherit;
+    text-decoration: none;
+}
+
+.routerLink--block {
+    display: block;
+}
+
+.container {
+    max-width: 1260px;
+    padding: 0 10px;
+    margin: 0 auto;
+}

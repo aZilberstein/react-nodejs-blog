@@ -1,0 +1,12 @@
+.app__header {
+
+}
+.app__headerMiddle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app__headerTime {
+    margin-right: 10px;
+}

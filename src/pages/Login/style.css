@@ -1,0 +1,7 @@
+.loginPage {
+    padding: 30px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
