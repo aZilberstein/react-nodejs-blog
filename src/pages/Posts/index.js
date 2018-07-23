@@ -4,7 +4,7 @@ import { store } from '../../store';
 import { fetchPosts } from '../../store/actions';
 
 
-class Home extends React.Component {
+class Posts extends React.Component {
     componentDidMount() {
         store.dispatch(fetchPosts());
     };
@@ -20,4 +20,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default Posts;

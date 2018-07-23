@@ -10,6 +10,7 @@ const initialState = {
         didInvalidate: false,
         lastUpdated: 0,
         items: [],
+        shownPost: {},
     },
 };
 

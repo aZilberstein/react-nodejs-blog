@@ -9,8 +9,6 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import CurrentDate from '../../components/CurrentDate';
-import { store } from '../../store';
-import { toggleSidebar } from '../../store/actions';
 import './style.css';
 
 const styles = {
@@ -32,7 +30,7 @@ class ButtonAppBar extends React.Component {
         this.classes = props.classes;
     };
     onMenuClick = () => {
-        store.dispatch(toggleSidebar(!store.getState().showSidebar));
+        this.props.onToggleSidebar();
     };
     render() {
         return (

@@ -1,27 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
+import {
+    BrowserRouter as matchPath,
+} from 'react-router-dom';
+// import { store } from '../../store';
+// import { fetchPostById} from "../../store/actions";
 
 class Post extends React.Component {
     componentDidMount() {
-        const state = store.getState();
+        console.log('matchPath', matchPath);
+        console.log('post page mounted, this.props: ', this.props);
     }
     render() {
         return (
             <div>
                 <div className="container">
-                    <h1>Latest posts</h1>
-                    <Post />
+                    <h1>Post - {this.props.match.params.id}</h1>
                 </div>
             </div>
         );
     }
 }
 
-Post.PropTypes = {
-
-};
-
-export default Home;
-
-connect();
+export default Post;

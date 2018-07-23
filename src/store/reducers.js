@@ -1,15 +1,17 @@
 import {
-    TOGGLE_SIDEBAR,
+    SET_SIDEBAR_VISIBILITY,
     LOGIN_USER,
     // LOGOUT_USER,
+    REQUEST_POST,
     REQUEST_POSTS,
     UPDATE_POSTS,
+    UPDATE_SHOWN_POST,
 } from './actions';
 
-function toggleSidebar(state = false, action) {
+function setSidebarVisbility(state = false, action) {
     switch (action.type) {
-        case TOGGLE_SIDEBAR:
-            return action.value;
+        case SET_SIDEBAR_VISIBILITY:
+            return action.visibility;
         default:
             return state;
     }
@@ -64,6 +66,17 @@ function posts(state = {
                 lastUpdated: Date.now(),
                 items: action.posts,
             };
+        case REQUEST_POST:
+            return {
+                ...state,
+                beingFetched: true,
+            };
+        case UPDATE_SHOWN_POST:
+            return {
+                ...state,
+                beingFetched: false,
+                shownPost: action.post,
+            };
         default:
             return state;
     }
@@ -72,7 +85,7 @@ function posts(state = {
 
 const blogApp = function reducer(state = {}, action) {
     return {
-        showSidebar: toggleSidebar(state.showSidebar, action),
+        showSidebar: setSidebarVisbility(state.showSidebar, action),
         user: loginUser(state.user, action),
         posts: posts(state.posts, action),
     }

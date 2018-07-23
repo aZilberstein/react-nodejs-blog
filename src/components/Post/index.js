@@ -1,23 +1,29 @@
-import { connect } from 'react-redux'
-import { fetchPosts } from "../../store/actions";
-import PresentPost from './PresentPost';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const mapStateToProps = state => {
-    return {
-        beingFetched: state.posts.beingFetched,
-        posts: state.posts.items,
+
+class Post extends React.Component {
+    render() {
+        return (
+            <div>
+                <div className="container">
+                    <Post {...this.props} />
+                </div>
+            </div>
+        );
     }
-};
+}
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onFetchPosts: filters => dispatch(fetchPosts(filters)),
-    };
+Post.PropTypes = {
+    classes: PropTypes.object.isRequired,
+    author: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    createdAt: PropTypes.number.isRequired,
+    image: PropTypes.string,
+    shortDescription: PropTypes.string,
+    text: PropTypes.string,
 };
-
-const Post = connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(PresentPost);
 
 export default Post;
+
+connect();
